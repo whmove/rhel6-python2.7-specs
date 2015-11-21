@@ -1,6 +1,6 @@
 %define binsuffix 27
 %define pybasever 2.7
-%define version 2.7.3
+%define version 2.7.10
 %define name python
 %define release 2
 
@@ -9,10 +9,10 @@ Version: %{version}
 Release: %{release}
 Summary: An interpreted, interactive, object-oriented programming language.
 Group: Development/Languages
-Source0: Python-%{version}.tar.bz2
+Source0: Python-%{version}.tgz
 
 License: PSF
-BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
+BuildRoot:  %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
 AutoReq: no
 Provides: python(abi) = %{pybasever}
@@ -75,6 +75,14 @@ python package will also need to be installed.  You'll probably also
 want to install the python-docs package, which contains Python
 documentation.
 
+%package man
+Summary: The man files for Python 2.7.
+Requires: %{name} = %{version}-%{release}
+Group: Development/Libraries
+
+%description man
+files for python 2.7 man
+
 %prep
 %setup -n Python-%{version}
 
@@ -111,8 +119,9 @@ documentation.
 %{_libdir}/python2.7/config/Makefile
 %{_prefix}/include/python2.7/pyconfig.h
 
+%files man
 %doc
-%{_mandir}/man1/python2.7.1.gz
+%{_mandir}/man1/*
 
 %files devel
 %defattr(-,root,root,-)
@@ -123,3 +132,6 @@ documentation.
 %changelog
 * Mon Sep 24 2012 Jeremiah Orem <oremj@oremj.com> - 2.7.3-1
 - Initial RPM release
+
+* Sat Nov 21 2015 Gary Liu <whmove@163.com> - 2.7.10
+- Edit for python 2.7.10
