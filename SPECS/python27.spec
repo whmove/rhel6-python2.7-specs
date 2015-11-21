@@ -130,8 +130,9 @@ files for python 2.7 man
 %{_prefix}/lib/python2.7/config
 
 %changelog
+* Sat Nov 21 2015 Gary Liu <whmove@163.com> - 2.7.10
+- Edit for python 2.7.10
+
 * Mon Sep 24 2012 Jeremiah Orem <oremj@oremj.com> - 2.7.3-1
 - Initial RPM release
 
-* Sat Nov 21 2015 Gary Liu <whmove@163.com> - 2.7.10
-- Edit for python 2.7.10
