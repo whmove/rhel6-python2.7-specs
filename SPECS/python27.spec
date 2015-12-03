@@ -59,22 +59,6 @@ a programmable interface.  Finally, Python is portable: it runs on many
 brands of UNIX, on PCs under Windows, MS-DOS, and OS/2, and on the
 Mac.
 
-%package devel
-Summary: The libraries and header files needed for Python extension development.
-Requires: %{name} = %{version}-%{release}
-Group: Development/Libraries
-
-%description devel
-The Python programming language's interpreter can be extended with
-dynamically loaded extensions and can be embedded in other programs.
-This package contains the header files and libraries needed to do
-these types of tasks.
-
-Install python-devel if you want to develop Python extensions.  The
-python package will also need to be installed.  You'll probably also
-want to install the python-docs package, which contains Python
-documentation.
-
 %package man
 Summary: The man files for Python 2.7.
 Requires: %{name} = %{version}-%{release}
@@ -118,16 +102,13 @@ files for python 2.7 man
 %{_prefix}/lib/python2.7/config
 %{_libdir}/python2.7/config/Makefile
 %{_prefix}/include/python2.7/pyconfig.h
+%{_prefix}/include/python2.7/*
+%{_libdir}/python2.7/config/*
+%{_prefix}/lib/python2.7/config
 
 %files man
 %doc
 %{_mandir}/man1/*
-
-%files devel
-%defattr(-,root,root,-)
-%{_prefix}/include/python2.7/*
-%{_libdir}/python2.7/config/*
-%{_prefix}/lib/python2.7/config
 
 %changelog
 * Sat Nov 21 2015 Gary Liu <whmove@163.com> - 2.7.10
@@ -135,4 +116,3 @@ files for python 2.7 man
 
 * Mon Sep 24 2012 Jeremiah Orem <oremj@oremj.com> - 2.7.3-1
 - Initial RPM release
-
